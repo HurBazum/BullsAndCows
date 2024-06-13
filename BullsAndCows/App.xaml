@@ -3,10 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:BullsAndCows"
              xmlns:vm="clr-namespace:BullsAndCows.ViewModels"
+             xmlns:views="clr-namespace:BullsAndCows.Views"
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <vm:ViewModelsLocator x:Key="Locator" />
+
+            <DataTemplate DataType="{x:Type vm:ListScoreViewModel}">
+                <views:ListScoreView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:GameViewModel}">
+                <views:GameView />
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
