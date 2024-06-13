@@ -7,6 +7,7 @@ namespace BullsAndCows.ViewModels
         public static IServiceCollection AddViewModels(this IServiceCollection services) => services
             .AddTransient<MainViewModel>()
             .AddTransient<ScoreViewModel>()
-            .AddTransient<ListScoreViewModel>();
+            .AddTransient<ListScoreViewModel>()
+            .AddTransient<GameViewModel>();
     }
 }

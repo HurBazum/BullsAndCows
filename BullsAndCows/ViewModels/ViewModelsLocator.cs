@@ -9,5 +9,6 @@ namespace BullsAndCows.ViewModels
         public static ScoreViewModel ScoreViewModel => App.Host.Services.GetRequiredService<ScoreViewModel>();
 
         public static ListScoreViewModel ListScoreViewModel => App.Host.Services.GetRequiredService<ListScoreViewModel>();
+        public static GameViewModel GameViewModel => App.Host.Services.GetRequiredService<GameViewModel>();
     }
 }

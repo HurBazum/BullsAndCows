@@ -6,58 +6,15 @@
         xmlns:local="clr-namespace:BullsAndCows"
         mc:Ignorable="d"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
-        Title="{Binding Title}" Height="450" Width="800">
+        Title="{Binding Title}" Height="500" Width="800">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Results" Command="{Binding LookAtRatingCmd}" />
-                <MenuItem Header="Game" Command="" />
+                <MenuItem Header="Game" Command="{Binding PlayGameCmd}" />
             </MenuItem>
         </Menu>
-        <Grid DockPanel.Dock="Bottom">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="250" />
-                <RowDefinition Height="70" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            
-            <ListBox Grid.Row="0" Height="250" 
-                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                     ItemsSource="{Binding Results}" />
-
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                
-                <TextBox Grid.Row="1" Height="40" Width="120" Margin="10"
-                         FontSize="25" HorizontalContentAlignment="Center"
-                         Text="{Binding Enter, UpdateSourceTrigger=PropertyChanged}" />
-
-                <Button Content="Start" Command="{Binding SetAnswerCmd}" Height="40" Width="100" />
-
-            </StackPanel>
-            <StackPanel Grid.Row="2" Orientation="Horizontal"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Width" Value="40" />
-                        <Setter Property="Height" Value="40" />
-                        <Setter Property="Margin" Value="5" />
-                        <Setter Property="Command" Value="{Binding EnterDigitCmd}" />
-                        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}}" />
-                    </Style>
-                </StackPanel.Resources>
-                <Button Content="0" />
-                <Button Content="1" />
-                <Button Content="2" />
-                <Button Content="3" />
-                <Button Content="4" />
-                <Button Content="5" />
-                <Button Content="6" />
-                <Button Content="7" />
-                <Button Content="8" />
-                <Button Content="9" />
-            </StackPanel>
-        </Grid>
+        <ContentControl Content="{Binding ViewModel}" DockPanel.Dock="Bottom" />
     </DockPanel>
     
 </Window>

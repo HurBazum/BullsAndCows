@@ -12,12 +12,14 @@ namespace BullsAndCows.ViewModels
             get => _title;
             set => Set(ref _title, value);
         }
+
         private readonly IEntityService<ScoreViewModel> _entityService;
 
         public ObservableCollection<ScoreViewModel> Scores { get; set; } = [];
         private async void InitializeScores()
         {
-            foreach(var item in await _entityService.GetAll())
+            var order = (await _entityService.GetAll()).OrderByDescending(x => x.Score);
+            foreach(var item in order)
             {
                 Scores.Add(item);
             }
